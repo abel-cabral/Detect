@@ -6,6 +6,6 @@
   "type": "ionic-angular",
   "proxies": [{
     "path": "/api",
-    "proxyUrl": "https://detektor.herokuapp.com/"
+    "proxyUrl": "https://detektor-api.herokuapp.com/"
   }]
 }

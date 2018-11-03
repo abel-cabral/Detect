@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserLoginProvider } from '../../providers/user-login/user-login';
 import { loginUser } from '../../model/user_login.model';
-
+import { Storage } from '@ionic/storage';
 
 @IonicPage({
   name: 'DashboardPage'
@@ -26,25 +26,27 @@ export class LoginPage{
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public storage: Storage,
     public UserLoginProvider: UserLoginProvider) {}
 
   ionViewDidLoad(): void {
-    //Le a variavel local
-    //this.authenticate = JSON.parse(localStorage.getItem('isOn?'));    
-    //Se houver resultado positivo de dados de login já redireciona o usuário
-      
-    //if(this.authenticate == 'true'){
-      //this.navCtrl.push('DashboardPage');
-      
-    //}
+    this.status = this.storage.get('status').then((val) => {
+      if(val){
+        this.navCtrl.setRoot('PanelPage');  
+      }
+    });    
+    
   }
 
   singIn():void{
     this.UserLoginProvider.singIn(this.login)
     .then(data => {        
-      this.status = data;                        
-    }); 
-    alert("sds");
+      console.log(data);   
+      this.navCtrl.setRoot('PanelPage');                     
+    }), err => {
+      alert('Houve um erro :/');
+      console.log(err);
+    };    
   }
 
   singup():void{

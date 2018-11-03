@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPageModule } from '../pages/login/login.module';
 import { UserLoginProvider } from '../providers/user-login/user-login';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { UserLoginProvider } from '../providers/user-login/user-login';
   ],
   imports: [
     BrowserModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       backButtonText: 'Voltar',
       mode: 'ios'
     }),
     LoginPageModule,
-    HttpClientModule,
+    HttpClientModule,        
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,6 +31,7 @@ import { UserLoginProvider } from '../providers/user-login/user-login';
     HomePage
   ],
   providers: [
+    
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

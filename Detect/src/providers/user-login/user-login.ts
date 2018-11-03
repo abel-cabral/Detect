@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AlertController, NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
 
 @Injectable()
 export class UserLoginProvider {
@@ -10,8 +9,7 @@ export class UserLoginProvider {
   constructor(
     public http: HttpClient,
     private alertCtrl: AlertController,
-    public storage: Storage,
-     public navCtrl: NavController, 
+    public storage: Storage     
     ) {}
     
   apiUrl: string = "/api";
@@ -32,14 +30,17 @@ export class UserLoginProvider {
   //Loga usuários 
   singIn(login){    
     return new Promise(resolve => {
-
       this.http.post(this.apiUrl + '/users', login)
       .subscribe(data => {
         // SUCESSO resposta da API com a info do usuario e sessao       
-        let user = data;      
-        this.storage.set('status', true);
-        this.storage.get('status').then((data) => console.log(data));                 
-        this.navCtrl.setRoot('HomePage');        
+        let user = data; 
+        console.log(user);
+        if(user == true){
+          this.storage.set('status', true);
+          this.storage.get('status');
+        }     
+        
+        resolve(data);         
       }, err => {
         alert('Houve um erro :/');
         console.log(err);
@@ -56,3 +57,4 @@ export class UserLoginProvider {
     });
     alert.present();
   }
+}
