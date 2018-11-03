@@ -11,27 +11,27 @@
 
   <ion-item no-lines>
     <ion-label color="light" stacked>Nome</ion-label>
-    <ion-input text-center text-capitalize type="text" placeholder="Nome Completo"></ion-input>
+    <ion-input text-center text-capitalize type="text" [(ngModel)]="name" name="name" placeholder="Nome Completo"></ion-input>
   </ion-item>
 
   <ion-item no-lines>
     <ion-label color="light" stacked>Email</ion-label>
-    <ion-input text-center type="email" placeholder="Seu Email"></ion-input>
+    <ion-input text-center type="email" [(ngModel)]="email" placeholder="Seu Email"></ion-input>
   </ion-item>
 
   <ion-item no-lines>
     <ion-label color="light" stacked>CPF</ion-label>
-    <ion-input text-center type="text" placeholder="Seu CPF"></ion-input>
+    <ion-input text-center type="text" [(ngModel)]="cpf" placeholder="Seu CPF"></ion-input>
   </ion-item>
 
   <ion-item no-lines>
     <ion-label color="light" stacked>Senha</ion-label>
-    <ion-input text-center type="password" placeholder="Mínimo 8 Caractéres"></ion-input>
+    <ion-input text-center type="password" [(ngModel)]="password" placeholder="Mínimo 8 Caractéres"></ion-input>
   </ion-item>
 
   <ion-item no-lines>
     <ion-label color="light" stacked>Confirmar Senha</ion-label>
-    <ion-input text-center type="password" placeholder="Repita sua Senha"></ion-input>
+    <ion-input text-center type="password" [(ngModel)]="password2" placeholder="Repita sua Senha"></ion-input>
   </ion-item>
 
 </ion-content>

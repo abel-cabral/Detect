@@ -1,18 +1,25 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  authenticate: string;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    //Le a variavel local
+    this.authenticate = JSON.parse(localStorage.getItem('isOn?'));
+    console.log(this.authenticate);
+    //Se houver resultado positivo de dados de login já redireciona o usuário
+    if(this.authenticate){
+      this.navCtrl.push('HomePage');
+    }
   }
 
   singup():void{
