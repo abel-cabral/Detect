@@ -1,3 +1,14 @@
 page-singup {
-
+    .background{
+        background-color: var(--dark);        
+        ion-item{
+            background-color: var(--dark);        
+        }
+        ion-input{
+            border: 1px solid grey;
+            color: var(--text-ligth);
+            border-radius: 5px;            
+        }
+    }
+    
 }

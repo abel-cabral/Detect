@@ -1,15 +1,31 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
+  <ion-navbar color="dark">
+    <ion-title text-uppercase>Detektor</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center>
+  <div class="center">
 
-<button ion-button colort='dark' (click)="singup()" text-center uppercase>Cadastrar-se</button>
-<button ion-button colort='primary' (click)="recovery()" text-center uppercase>Recuperar Senha</button>
+    <ion-input text-center text-capitalize type="email" placeholder="Email"></ion-input>
 
+    <ion-input text-center type="password" placeholder="Senha"></ion-input>
+
+    <button ion-button color="dark" block>
+      Entrar
+    </button>
+
+    <button class="options" text-center uppercase no-lines (click)="singup()">
+      Cadastrar-se
+    </button>
+
+    <button class="options" text-center uppercase no-lines (click)="recovery()">
+      Recuperar Senha
+    </button>
+  </div>
+
+  <video autoplay src="./../../assets/video/Cubehouse.mp4"></video>
 </ion-content>

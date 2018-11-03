@@ -41,6 +41,13 @@ $colors: (
   dark:       #222
 );
 
+//CSS Variables
+:root {
+  //Background
+  --dark: #222;
+  //Text
+  --text-ligth:#f4f4f4;
+}
 
 // App iOS Variables
 // --------------------------------------------------

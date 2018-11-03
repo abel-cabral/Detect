@@ -22,4 +22,9 @@ export class SingupPage {
     console.log('ionViewDidLoad SingupPage');
   }
 
+  //Envia os dados para a API
+  sendData():void {
+    alert("Clicado");
+  }
+
 }

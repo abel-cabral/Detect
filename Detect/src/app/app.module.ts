@@ -15,7 +15,9 @@ import { LoginPageModule } from '../pages/login/login.module';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'Voltar'
+    }),
     LoginPageModule,
   ],
   bootstrap: [IonicApp],
