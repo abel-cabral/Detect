@@ -1,0 +1,7 @@
+{
+  "name": "Detect",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
