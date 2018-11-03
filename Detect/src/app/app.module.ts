@@ -17,7 +17,8 @@ import { UserLoginProvider } from '../providers/user-login/user-login';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      backButtonText: 'Voltar'
+      backButtonText: 'Voltar',
+      mode: 'ios'
     }),
     LoginPageModule,
     HttpClientModule,
