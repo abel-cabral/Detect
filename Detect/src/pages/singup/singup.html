@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color="leaves">
+    <ion-title>Contas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background" padding>
+  <form autocomplete="off">
+    <ion-item no-lines>
+      <ion-label color="light" stacked>Nome</ion-label>
+      <ion-input text-center text-capitalize type="text" [(ngModel)]="send.name" name="name" placeholder="Nome Completo" required></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label color="light" stacked>Email</ion-label>
+      <ion-input text-center type="email" [(ngModel)]="send.email" name="email" placeholder="Seu Email" required></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label color="light" stacked>CPF</ion-label>
+      <ion-input text-center type="text" [(ngModel)]="send.cpf" name="cpf" placeholder="Seu CPF" required></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label color="light" stacked>Senha</ion-label>
+      <ion-input text-center type="password" [(ngModel)]="send.password" name="password" placeholder="Mínimo 8 Caractéres" required></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label color="light" stacked>Confirmar Senha</ion-label>
+      <ion-input text-center type="password" [(ngModel)]="password2" name="password2" placeholder="Repita sua Senha" required></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="brownstone">
+    <ion-title text-center (click)="sendData()">Cadastrar-se</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -3,18 +3,28 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LoginPageModule } from '../pages/login/login.module';
+import { UserLoginProvider } from '../providers/user-login/user-login';
+import { IonicStorageModule } from '@ionic/storage';
+import { ChatProvider } from '../providers/chat/chat';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,    
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicStorageModule.forRoot(),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'Voltar',
+      mode: 'ios'
+    }),
+    LoginPageModule,
+    HttpClientModule,        
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -22,9 +32,12 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   providers: [
+    
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserLoginProvider,
+    ChatProvider,    
   ]
 })
 export class AppModule {}

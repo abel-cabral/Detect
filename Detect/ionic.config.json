@@ -3,5 +3,12 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "https://detektor-api.herokuapp.com/"
+  }, {
+    "path": "/chat",
+    "proxyUrl": "https://detektor-api.herokuapp.com/"
+  }]
 }
