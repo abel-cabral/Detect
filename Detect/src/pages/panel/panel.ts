@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
   selector: 'page-panel',
   templateUrl: 'panel.html',
 })
-export class PanelPage {
+export class PanelPage{
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
   }
