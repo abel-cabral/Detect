@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { TabsComponent } from './tabs/tabs';
+import { TabsPage} from './../pages/tabs/tabs';
 @NgModule({
-	declarations: [TabsComponent],
+	declarations: [TabsPage],
 	imports: [],
-	exports: [TabsComponent]
+	exports: [TabsPage]
 })
 export class ComponentsModule {}
