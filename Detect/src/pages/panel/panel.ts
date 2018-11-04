@@ -11,31 +11,58 @@ declare var google;
 })
 export class PanelPage {
   map: any;
+  markers = new Array();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
   }
 
   ionViewDidLoad() {
-    const position = new google.maps.LatLng(-22.9990991,-43.3671249);
+    const positionA = new google.maps.LatLng(-22.9990991,-43.3671249);
 
     const mapOptions = {
       zoom: 18,
-      center: position,
+      center: positionA,
       disableDefaultUI: true
     }
 
     this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    const marker = new google.maps.Marker({
-      position: position,
-      map: this.map
+    var i = 0;
+
+    google.maps.event.addListener(this.map, 'click', (e) => {
+      i++;
+      if(i == 2) {
+        i = 0;
+        this.deleteMarkers();
+      }
+      var pointAny = new google.maps.Marker({
+        position: e.latLng,
+        map: this.map
+      });
+      this.markers.push(pointAny);
     });
 
   }
+
+  setMapOnAll(map) {
+   for (var i = 0; i < this.markers.length; i++) {
+     this.markers[i].setMap(map);
+   }
+  }
+
+ clearMarkers() {
+   this.setMapOnAll(null);
+ }
+
+ deleteMarkers() {
+    this.clearMarkers();
+    this.markers = [];
+  }
+
+
 
   endSession(): void{
     this.storage.set('status', false);
     this.navCtrl.setRoot('LoginPage');
   }
-
 }
