@@ -27,30 +27,38 @@ export class PanelPage {
 
     this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    var i = 0;
-
     google.maps.event.addListener(this.map, 'click', (e) => {
-      i++;
-      if(i == 2) {
-        i = 0;
-        this.deleteMarkers();
-      }
+      
       var pointAny = new google.maps.Marker({
         position: e.latLng,
         map: this.map
       });
 
+      console.log('this.markers.length')
+      console.log(this.markers.length)
+      
+      if(this.markers.length == 2) {
+        this.deleteMarkers();
+      }
 
-      this.map.event.addPolyline({
-          points: pointAny,
-          'color' : '#AA00FF',
-          'width': 10,
-          'geodesic': true
-      });
+      if(this.markers.length == 1) {
+
+        var polyName = new google.maps.Polyline({
+            path: pointAny.position,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+        console.log(polyName)
+
+        polyName.setMap(this.map);
+      }
 
 
-      console.log(pointAny)
       this.markers.push(pointAny);
+      console.log(this.markers)
     });
 
   }
