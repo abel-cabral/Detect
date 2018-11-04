@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginPageModule } from '../pages/login/login.module';
 import { UserLoginProvider } from '../providers/user-login/user-login';
 import { IonicStorageModule } from '@ionic/storage';
@@ -13,8 +12,7 @@ import { ChatProvider } from '../providers/chat/chat';
 import { TabsPageModule } from './../pages/tabs/tabs.module';
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,    
+    MyApp,        
   ],
   imports: [
     BrowserModule,
@@ -29,8 +27,7 @@ import { TabsPageModule } from './../pages/tabs/tabs.module';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp,    
   ],
   providers: [
     
