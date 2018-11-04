@@ -1,11 +1,37 @@
 <ion-header>
 
-  <ion-navbar color="dark">    
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar color="dark">
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <div class="chats">
+      <div class="chatbox">
+        <div *ngFor="let chat of chats">
+          <div class="message sent" *ngIf="chat.type!=='bot' && chat.isMe">
+            {{chat.message}}
+            <span class="metadata">
+              <span class="time">{{chat.createdAt | date: 'HH:mm aaa'}}</span>
+            </span>
+          </div>
+          <div class="message received" *ngIf="chat.type =='bot' && !chat.isMe">
+            {{chat.message}}
+            <span class="metadata">
+              <span class="time">{{chat.createdAt | date: 'HH:mm aaa'}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ion-footer>        
+      <p text-center *ngIf="sending">Enviando...</p>
+      <div class="flex-items" padding>
+        <ion-input text-center [(ngModel)]="message" name="message" class="input_message" placeholder="Nos conte o seu caminho ..."></ion-input>
+        <ion-icon color="dark" (click)="print(message)" class="send" name="send"></ion-icon>
+      </div>
+    </ion-footer>
+  </ion-content>
+  
