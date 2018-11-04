@@ -10,7 +10,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { UserLoginProvider } from '../providers/user-login/user-login';
 import { IonicStorageModule } from '@ionic/storage';
 import { ChatProvider } from '../providers/chat/chat';
-
+import { TabsPageModule } from './../pages/tabs/tabs.module';
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +24,8 @@ import { ChatProvider } from '../providers/chat/chat';
       mode: 'ios'
     }),
     LoginPageModule,
-    HttpClientModule,        
+    HttpClientModule,   
+    TabsPageModule        
   ],
   bootstrap: [IonicApp],
   entryComponents: [

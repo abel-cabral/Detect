@@ -3,14 +3,14 @@ import { IonicPage, NavParams, ViewController, NavController } from 'ionic-angul
 import { user } from '../../model/user.model';
 import { UserLoginProvider } from '../../providers/user-login/user-login';
 import { HomePage } from '../home/home';
-//import { FormBuilder, Validators } from '@angular/forms'; 
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
   selector: 'page-singup',
   templateUrl: 'singup.html',
 })
-export class SingupPage {
+export class SingupPage{
   //Variaveis do Input      
   send:user = {
     name: null,
@@ -25,7 +25,8 @@ export class SingupPage {
     public navCtrl: NavController,     
     public viewCtrl: ViewController,
     public navParams: NavParams,
-    private UserLoginProvider: UserLoginProvider) {    
+    private UserLoginProvider: UserLoginProvider,
+    public storage: Storage) {    
   }
   
   //Envia os dados para a API
@@ -35,9 +36,9 @@ export class SingupPage {
         this.status = data; 
         this.UserLoginProvider.welcome(this.status);         
         //Cria salva localmente      
-        localStorage.setItem('isOn?', 'true');
-        //Leva o usuario para Home
-        this.navCtrl.push(HomePage);        
+        this.storage.set('status', true);
+        //Leva o usuario para Home        
+        this.navCtrl.setRoot('PanelPage');        
       }); 
   }
 }

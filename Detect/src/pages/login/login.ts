@@ -4,20 +4,15 @@ import { UserLoginProvider } from '../../providers/user-login/user-login';
 import { loginUser } from '../../model/user_login.model';
 import { Storage } from '@ionic/storage';
 
-@IonicPage({
-  name: 'DashboardPage'
-})
-
+@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 
-export class LoginPage{
-  authenticate: string;
-  rootPage: string;
+export class LoginPage{  
   status: any;
-
+  
   login: loginUser = {
     email: null,
     password: null,
@@ -27,33 +22,40 @@ export class LoginPage{
     public navCtrl: NavController, 
     public navParams: NavParams,
     public storage: Storage,
-    public UserLoginProvider: UserLoginProvider) {}
-
-  ionViewDidLoad(): void {
-    this.status = this.storage.get('status').then((val) => {
-      if(val){
-        this.navCtrl.setRoot('PanelPage');  
+    public UserLoginProvider: UserLoginProvider) {      
+      
+    }
+  ionViewDidLoad() {
+    this.status = this.storage.get('status').then((val) => {      
+      if(val){       
+        this.nextForRoot('TabsPage');
       }
     });    
-    
   }
 
-  singIn():void{
+  singIn(){
     this.UserLoginProvider.singIn(this.login)
-    .then(data => {        
-      console.log(data);   
-      this.navCtrl.setRoot('PanelPage');                     
+    .then(data => {               
+      this.nextForRoot('TabsPage');       
     }), err => {
       alert('Houve um erro :/');
       console.log(err);
     };    
   }
 
-  singup():void{
+  nextForRoot(name: string){
+    this.navCtrl.setRoot(name);
+  }
+   
+   pushPage(name:string){
+    this.navCtrl.push(name);
+  }
+  
+  singup(){
     this.navCtrl.push('SingupPage');
   }
 
-  recovery():void{
+  recovery(){
     this.navCtrl.push('RecoveryPage');
   }
 }

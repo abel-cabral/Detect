@@ -7,17 +7,14 @@ import { Storage } from '@ionic/storage';
   selector: 'page-panel',
   templateUrl: 'panel.html',
 })
-export class PanelPage {
+export class PanelPage{
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PanelPage');
-  }
-
-  endSession(): void{
+  endSession(){
     this.storage.set('status', false);
+    this.navCtrl.popToRoot();
     this.navCtrl.setRoot('LoginPage'); 
   }
 
