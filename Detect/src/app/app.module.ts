@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPageModule } from '../pages/login/login.module';
 import { UserLoginProvider } from '../providers/user-login/user-login';
 import { IonicStorageModule } from '@ionic/storage';
+import { ChatProvider } from '../providers/chat/chat';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserLoginProvider,    
+    UserLoginProvider,
+    ChatProvider,    
   ]
 })
 export class AppModule {}
