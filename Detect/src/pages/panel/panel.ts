@@ -39,6 +39,17 @@ export class PanelPage {
         position: e.latLng,
         map: this.map
       });
+
+
+      this.map.event.addPolyline({
+          points: pointAny,
+          'color' : '#AA00FF',
+          'width': 10,
+          'geodesic': true
+      });
+
+
+      console.log(pointAny)
       this.markers.push(pointAny);
     });
 
