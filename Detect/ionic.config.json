@@ -4,8 +4,11 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "proxies": [{
-    "path": "/api",
-    "proxyUrl": "https://detektor-api.herokuapp.com/"
-  }]
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://detektor-api.herokuapp.com/"
+    }
+  ],
+  "app_id": ""
 }
