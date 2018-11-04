@@ -43,21 +43,28 @@ export class PanelPage {
 
       if(this.markers.length == 1) {
 
+        let points = new Array();
+
+        for(var j=0; j<this.markers.length; j++) {
+          points.push(this.markers[j].position)
+        }
+
         var polyName = new google.maps.Polyline({
-            path: pointAny.position,
+            path: points,
             geodesic: true,
             strokeColor: '#FF0000',
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
 
+        console.log('polyName')
         console.log(polyName)
 
         polyName.setMap(this.map);
       }
 
-
       this.markers.push(pointAny);
+        console.log('this.markers')
       console.log(this.markers)
     });
 
