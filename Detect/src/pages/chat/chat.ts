@@ -1,8 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
-import { HomePage } from '../home/home';
-
-
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,22 +7,21 @@ import { HomePage } from '../home/home';
   templateUrl: 'chat.html',
 })
 export class ChatPage {
-  data = { type:'', nickname:'', message:'' };
-  chats = [];
-  roomkey:string;
-  nickname:string;
-  offStatus:boolean = false;
+  mensagem: string;
+  chat = {
+    isMe: ''
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
   }
 
+  print(text:string){
+    this.chat.isMe = text;
+    return '';
+  }
+
   exitChat(): void {      
     this.navCtrl.setRoot('HomePage');
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
-  }
-
+  }  
 }
