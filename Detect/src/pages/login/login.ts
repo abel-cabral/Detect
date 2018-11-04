@@ -28,7 +28,7 @@ export class LoginPage{
   ionViewDidLoad() {
     this.status = this.storage.get('status').then((val) => {      
       if(val){       
-        this.nextForRoot('PanelPage');
+        this.nextForRoot('TabsPage');
       }
     });    
   }
@@ -36,7 +36,7 @@ export class LoginPage{
   singIn(){
     this.UserLoginProvider.singIn(this.login)
     .then(data => {               
-      this.nextForRoot('PanelPage');       
+      this.nextForRoot('TabsPage');       
     }), err => {
       alert('Houve um erro :/');
       console.log(err);
