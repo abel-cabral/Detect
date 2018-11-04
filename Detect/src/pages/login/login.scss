@@ -1,0 +1,36 @@
+page-login {
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.3);
+    filter: blur(10px);
+  }
+
+  svg{
+    width: 50%;
+    margin: 25% 0%;
+  }
+
+  .text-input{
+      background-color: antiquewhite;
+      height: 42px;
+      border: 1px solid var(--text-brown);      
+  }
+
+  .options {
+    background: transparent;
+    color: var(--text-ligth);
+  }
+
+  .options:hover {
+    color: var(--dark);
+  }
+}

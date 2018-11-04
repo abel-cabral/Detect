@@ -37,10 +37,20 @@ $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  light:      #f3ebdd,
+  dark:       #2A2922,
+  leaves: #506d2f,
+  brownstone: #7d5642,
 );
 
+//CSS Variables
+:root {
+  //Background
+  --dark: #2A2922;
+  //Text
+  --text-brown: #7d5642;
+  --text-ligth: #f3ebdd;
+}
 
 // App iOS Variables
 // --------------------------------------------------
