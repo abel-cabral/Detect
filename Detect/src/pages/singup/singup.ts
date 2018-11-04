@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController, NavController } from 'ionic-angular';
 import { user } from '../../model/user.model';
 import { UserLoginProvider } from '../../providers/user-login/user-login';
-import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
 
 @IonicPage()
